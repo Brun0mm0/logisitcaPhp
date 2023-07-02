@@ -10,14 +10,18 @@ abstract class Vehiculo {
     private $carroceria;
     private $cargaUtil;
     private $estado;
-
+    
     public function __construct($motorMarca, $motorNumero, $carroceriaMarca, $chasisNumero, $cargaUtil) {
         $this->motor = new Motor($motorMarca, $motorNumero);
         $this->chasis = new Chasis($chasisNumero);
         $this->carroceria = new Carroceria($carroceriaMarca);
         $this->cargaUtil = $cargaUtil;
         $this->estado = 'DISPONIBLE';
+        
+    }
 
+    private function setEstado($valor) {
+        $this->estado = $valor;
     }
 
     public function getMotor() {
@@ -28,27 +32,23 @@ abstract class Vehiculo {
     }
 
     public function getChasis() {
+        echo $this->chasis->numero;
 
+        return $this->chasis;
     }
 
     public function getCarroceria() {
+        echo $this->carroceria->marca;
 
+        return $this->carroceria;
     }
 
-    public function setEstado() {
-
+    public function entregarCarga() {
+        $this->setEstado('DISPONIBLE');
     }
 
-
-    public function realizarCarga($peso,$distancia) {
-        if($this->disponible && $this->cargaMaxima >= $peso) {
-            return true;
-        } 
-    }
-
-    public function realizarMantenimiento() {
-        $this->disponibilidad = true;
-        $this-> cantidadDeKmDesdeUltimoMantenimiento = 0;
+    public function cargarVehiculo() {
+        $this->setEstado('ENTREGA EN CURSO');
     }
 }
 

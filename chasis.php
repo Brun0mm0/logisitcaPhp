@@ -1,14 +1,14 @@
 <?php
 
     class Chasis {
-    public $numero;
+    private $numero;
 
     public function __construct($numero) {
         $this->numero = $numero;
     }
     public function __get($property) {
-        echo $this->numero;
-        return $this->numero;
+        if(property_exists($this, $property))
+        return $this->$property;
     }
 }
 ?>

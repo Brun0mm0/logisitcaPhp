@@ -3,11 +3,14 @@ require_once('vehiculo.php');
 
 class Camion extends Vehiculo {
 
-    public function __construct($chasis,$motor,$carroceria) {
-        $this->chasis = new Chasis($chasis);
-        $this->motor = new Motor($motor);
-        $this->carroceria = new Carroceria($carroceria);
-        $this->cargaUtil = 24000;
+    private $equipoDeFrio;
+
+    public function __construct($motorMarca,$motorNumero,$carroceriaMarca,$chasisNumero) {
+        parent::__construct($motorMarca,$motorNumero,$carroceriaMarca,$chasisNumero,24000);
     } 
+
+    public function setEquipoDeFrio($valor) {
+        $this->equipoDeFrio = $valor;
+    }
 }
 ?>

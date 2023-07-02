@@ -1,13 +1,14 @@
 <?php
 
     class Carroceria {
-    public $marca;
+    private $marca;
 
-    public function __construct($numero) {
-        $this->numero = $numero;
+    public function __construct($marca) {
+        $this->marca = $marca;
     }
-    public function get() {
-        echo $this->numero;
+    public function __get($property) {
+        if(property_exists($this, $property))
+        return $this->$property;
     }
 }
 ?>
