@@ -9,8 +9,6 @@ include_once('producto.php');
     
         public function __construct($nombre) {
             $this->nombre = $nombre;
-            echo "se creo el almacen {$nombre}";
-            echo '<br>';
         }
 
         public function agregarProducto(Producto $producto) {
@@ -84,19 +82,4 @@ include_once('producto.php');
             }
         }
     }
-
-$almacen = new Almacen('Central');
-$celulares = new Producto('Celular', 500);
-$celulares2 = new Producto('Celular', 500);
-$carcasa = new Producto('Carcasa', 500);
-$pedido = new Producto('Celular', 1500);
-$almacen->agregarProducto($celulares);
-$almacen->mostrarStock();
-$almacen->agregarProducto($celulares2);
-$almacen->mostrarStock();
-$almacen->agregarProducto($carcasa);
-$almacen->mostrarStock();
-$almacen->prepararPedido($pedido);
-$almacen->mostrarStock();
-
 ?>

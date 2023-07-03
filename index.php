@@ -1,8 +1,12 @@
 <?php
-include_once('almacen.php');
+include_once('deposito/empresa.php');
 
-$almacenCentral = new Almacen('Central', 'Saade');
-$almacenCentral->agregarProducto('ojotas',600,0.5);
-$almacenCentral->mostrar('producto');
+$empresa = new Empresa('Logistica Shipping');
+$almacen = new Almacen('Central');
+echo '<br/>';
+$empresa->agregarAlmacen($almacen);
+$gerente = new Gerente('Saade, Leonel');
+echo '<br/>';
+$empresa->setGerente($gerente);
 
 ?>
